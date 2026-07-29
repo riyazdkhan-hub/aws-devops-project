@@ -69,3 +69,31 @@ output "jenkins_security_group_id" {
   value = module.security_groups.jenkins_security_group_id
 
 }
+
+############################################################
+# EC2 Outputs
+############################################################
+
+output "jenkins_instance_id" {
+
+  value = module.ec2.jenkins_instance_id
+
+}
+
+output "jenkins_public_ip" {
+
+  value = module.ec2.jenkins_public_ip
+
+}
+
+output "application_instance_id" {
+
+  value = module.ec2.application_instance_id
+
+}
+
+output "application_private_ip" {
+
+  value = module.ec2.application_private_ip
+
+}

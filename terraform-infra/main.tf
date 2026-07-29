@@ -55,3 +55,35 @@ module "security_groups" {
   vpc_id = module.vpc.vpc_id
 
 }
+
+############################################################
+# EC2 Module
+############################################################
+
+module "ec2" {
+
+  source = "./modules/ec2"
+
+  project_code = var.project_code
+
+  project_name = var.project_name
+
+  environment = var.environment
+
+  ami_id = var.ami_id
+
+  instance_type = var.instance_type
+
+  key_name = var.key_name
+
+  public_subnet_id = module.vpc.public_subnet_ids[0]
+
+  private_subnet_id = module.vpc.private_subnet_ids[0]
+
+  jenkins_security_group_id = module.security_groups.jenkins_security_group_id
+
+  ec2_security_group_id = module.security_groups.ec2_security_group_id
+
+  instance_profile_name = module.iam.ec2_instance_profile_name
+
+}

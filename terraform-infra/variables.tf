@@ -81,3 +81,31 @@ variable "private_subnet_cidrs" {
   type = list(string)
 
 }
+
+############################################################
+# EC2 Configuration
+############################################################
+
+variable "ami_id" {
+
+  description = "Ubuntu 24.04 LTS AMI"
+
+  type = string
+
+}
+
+variable "instance_type" {
+
+  description = "EC2 Instance Type"
+
+  type = string
+
+}
+
+variable "key_name" {
+
+  description = "AWS Key Pair"
+
+  type = string
+
+}
