@@ -30,6 +30,19 @@ resource "aws_instance" "jenkins" {
 
   associate_public_ip_address  = true
 
+  disable_api_termination = true
+
+  root_block_device {
+
+  volume_size = var.root_volume_size
+
+  volume_type = var.root_volume_type
+
+  encrypted = true
+
+  delete_on_termination = true
+
+  }
   tags = {
 
     Name = "${local.name_prefix}-jenkins"
@@ -60,6 +73,17 @@ resource "aws_instance" "application" {
 
   associate_public_ip_address  = false
 
+  root_block_device {
+
+  volume_size = var.root_volume_size
+
+  volume_type = var.root_volume_type
+
+  encrypted = true
+
+  delete_on_termination = true
+
+  }
   tags = {
 
     Name = "${local.name_prefix}-application"

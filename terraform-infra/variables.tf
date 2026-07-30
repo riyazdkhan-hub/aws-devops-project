@@ -109,3 +109,23 @@ variable "key_name" {
   type = string
 
 }
+
+############################################################
+# Root Volume Configuration
+############################################################
+
+variable "root_volume_size" {
+
+  description = "Root Volume Size"
+
+  type = number
+
+}
+
+variable "root_volume_type" {
+
+  description = "Root Volume Type"
+
+  type = string
+
+}

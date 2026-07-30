@@ -86,4 +86,32 @@ module "ec2" {
 
   instance_profile_name = module.iam.ec2_instance_profile_name
 
+  root_volume_size = var.root_volume_size
+
+  root_volume_type = var.root_volume_type
+
+}
+
+############################################################
+# ALB Module
+############################################################
+
+module "alb" {
+
+  source = "./modules/alb"
+
+  project_code = var.project_code
+
+  project_name = var.project_name
+
+  environment = var.environment
+
+  vpc_id = module.vpc.vpc_id
+
+  public_subnet_ids = module.vpc.public_subnet_ids
+
+  alb_security_group_id = module.security_groups.alb_security_group_id
+
+  application_instance_id = module.ec2.application_instance_id
+
 }

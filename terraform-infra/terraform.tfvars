@@ -39,3 +39,11 @@ ami_id = "ami-xxxxxxxxxxxxxxxxx"
 instance_type = "t3.medium"
 
 key_name = "your-keypair-name"
+
+############################################################
+# Root Volume Configuration
+############################################################
+
+root_volume_size = 30
+
+root_volume_type = "gp3"

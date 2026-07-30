@@ -105,3 +105,23 @@ variable "instance_profile_name" {
   type = string
 
 }
+
+############################################################
+# Root Volume Configuration
+############################################################
+
+variable "root_volume_size" {
+
+  description = "Root EBS Volume Size (GB)"
+
+  type = number
+
+}
+
+variable "root_volume_type" {
+
+  description = "Root EBS Volume Type"
+
+  type = string
+
+}
