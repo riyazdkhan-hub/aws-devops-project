@@ -171,3 +171,19 @@ module "cloudwatch" {
   autoscaling_group_name = module.autoscaling.autoscaling_group_name
 
 }
+
+############################################################
+# Amazon ECR Module
+############################################################
+
+module "ecr" {
+
+  source = "./modules/ecr"
+
+  project_code = var.project_code
+
+  project_name = var.project_name
+
+  environment = var.environment
+
+}
