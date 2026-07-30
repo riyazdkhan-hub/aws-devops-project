@@ -1,5 +1,13 @@
 ---
-- name: Pull Docker Image
+- name: Login to Amazon ECR
+  shell: |
+    aws ecr get-login-password --region {{ aws_region }} | \
+    docker login \
+    --username AWS \
+    --password-stdin \
+    {{ aws_account_id }}.dkr.ecr.{{ aws_region }}.amazonaws.com
+
+- name: Pull Latest Docker Image
   docker_image:
     name: "{{ docker_image }}"
     source: pull
@@ -15,17 +23,7 @@
     image: "{{ docker_image }}"
     state: started
     restart_policy: unless-stopped
-
     published_ports:
       - "{{ application_port }}:3000"
-
     env:
       PORT: "3000"
-
-- name: Verify Running Containers
-  command: docker ps
-  register: docker_ps
-
-- name: Display Running Containers
-  debug:
-    var: docker_ps.stdout_lines

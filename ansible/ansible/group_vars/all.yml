@@ -5,6 +5,14 @@ docker_compose_package: docker-compose-v2
 
 application_port: 3000
 
-docker_image: project786/nodeapp:latest
+aws_region: us-east-1
+
+aws_account_id: YOUR_AWS_ACCOUNT_ID
+
+ecr_repository: project786-dev
+
+docker_image: "{{ aws_account_id }}.dkr.ecr.{{ aws_region }}.amazonaws.com/{{ ecr_repository }}:latest"
 
 container_name: nodeapp
+
+application_port: 3000
