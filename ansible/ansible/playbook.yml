@@ -1,0 +1,15 @@
+---
+- name: Configure All Servers
+  hosts: all
+  become: true
+
+  roles:
+    - common
+    - docker
+
+- name: Configure Application Servers
+  hosts: application
+  become: true
+
+  roles:
+    - nodeapp

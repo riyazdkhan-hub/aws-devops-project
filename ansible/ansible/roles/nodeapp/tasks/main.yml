@@ -1,0 +1,31 @@
+---
+- name: Pull Docker Image
+  docker_image:
+    name: "{{ docker_image }}"
+    source: pull
+
+- name: Remove Existing Container
+  docker_container:
+    name: "{{ container_name }}"
+    state: absent
+
+- name: Run Application Container
+  docker_container:
+    name: "{{ container_name }}"
+    image: "{{ docker_image }}"
+    state: started
+    restart_policy: unless-stopped
+
+    published_ports:
+      - "{{ application_port }}:3000"
+
+    env:
+      PORT: "3000"
+
+- name: Verify Running Containers
+  command: docker ps
+  register: docker_ps
+
+- name: Display Running Containers
+  debug:
+    var: docker_ps.stdout_lines

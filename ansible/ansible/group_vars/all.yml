@@ -1,0 +1,10 @@
+---
+docker_package: docker.io
+
+docker_compose_package: docker-compose-v2
+
+application_port: 3000
+
+docker_image: project786/nodeapp:latest
+
+container_name: nodeapp
