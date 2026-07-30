@@ -86,18 +86,6 @@ output "jenkins_public_ip" {
 
 }
 
-output "application_instance_id" {
-
-  value = module.ec2.application_instance_id
-
-}
-
-output "application_private_ip" {
-
-  value = module.ec2.application_private_ip
-
-}
-
 ############################################################
 # ALB Outputs
 ############################################################
@@ -117,5 +105,21 @@ output "alb_arn" {
 output "target_group_arn" {
 
   value = module.alb.target_group_arn
+
+}
+
+############################################################
+# Auto Scaling Outputs
+############################################################
+
+output "launch_template_id" {
+
+  value = module.autoscaling.launch_template_id
+
+}
+
+output "autoscaling_group_name" {
+
+  value = module.autoscaling.autoscaling_group_name
 
 }

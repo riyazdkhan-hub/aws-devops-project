@@ -18,22 +18,3 @@ output "jenkins_public_ip" {
 
 }
 
-############################################################
-# Application EC2 Outputs
-############################################################
-
-output "application_instance_id" {
-
-  description = "Application EC2 Instance ID"
-
-  value = aws_instance.application.id
-
-}
-
-output "application_private_ip" {
-
-  description = "Application Private IP"
-
-  value = aws_instance.application.private_ip
-
-}

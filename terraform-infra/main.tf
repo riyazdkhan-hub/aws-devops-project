@@ -112,6 +112,44 @@ module "alb" {
 
   alb_security_group_id = module.security_groups.alb_security_group_id
 
-  application_instance_id = module.ec2.application_instance_id
+}
+
+############################################################
+# Auto Scaling Module
+############################################################
+
+module "autoscaling" {
+
+  source = "./modules/autoscaling"
+
+  project_code = var.project_code
+
+  project_name = var.project_name
+
+  environment = var.environment
+
+  ami_id = var.ami_id
+
+  instance_type = var.instance_type
+
+  key_name = var.key_name
+
+  root_volume_size = var.root_volume_size
+
+  root_volume_type = var.root_volume_type
+
+  private_subnet_ids = module.vpc.private_subnet_ids
+
+  security_group_id = module.security_groups.ec2_security_group_id
+
+  instance_profile_name = module.iam.ec2_instance_profile_name
+
+  target_group_arn = module.alb.target_group_arn
+
+  desired_capacity = 2
+
+  min_size = 2
+
+  max_size = 4
 
 }

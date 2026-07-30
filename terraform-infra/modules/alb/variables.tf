@@ -57,15 +57,3 @@ variable "alb_security_group_id" {
   type = string
 
 }
-
-############################################################
-# Application
-############################################################
-
-variable "application_instance_id" {
-
-  description = "Application EC2 Instance ID"
-
-  type = string
-
-}

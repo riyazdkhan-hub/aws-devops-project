@@ -7,7 +7,6 @@ Creates the compute infrastructure for the AWS DevOps Production Project.
 ## Resources
 
 - Jenkins EC2 Instance
-- Application EC2 Instance
 
 ## Architecture
 

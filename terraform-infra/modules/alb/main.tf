@@ -81,20 +81,6 @@ resource "aws_lb_target_group" "application" {
 }
 
 ############################################################
-# Register EC2
-############################################################
-
-resource "aws_lb_target_group_attachment" "application" {
-
-  target_group_arn = aws_lb_target_group.application.arn
-
-  target_id = var.application_instance_id
-
-  port = 3000
-
-}
-
-############################################################
 # HTTP Listener
 ############################################################
 
