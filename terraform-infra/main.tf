@@ -153,3 +153,21 @@ module "autoscaling" {
   max_size = 4
 
 }
+
+############################################################
+# CloudWatch Module
+############################################################
+
+module "cloudwatch" {
+
+  source = "./modules/cloudwatch"
+
+  project_code = var.project_code
+
+  project_name = var.project_name
+
+  environment = var.environment
+
+  autoscaling_group_name = module.autoscaling.autoscaling_group_name
+
+}

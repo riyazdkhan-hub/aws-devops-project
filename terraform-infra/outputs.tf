@@ -123,3 +123,31 @@ output "autoscaling_group_name" {
   value = module.autoscaling.autoscaling_group_name
 
 }
+
+############################################################
+# CloudWatch Outputs
+############################################################
+
+output "cloudwatch_log_group" {
+
+  value = module.cloudwatch.log_group_name
+
+}
+
+output "cloudwatch_dashboard" {
+
+  value = module.cloudwatch.dashboard_name
+
+}
+
+output "cpu_alarm" {
+
+  value = module.cloudwatch.cpu_alarm_name
+
+}
+
+output "status_check_alarm" {
+
+  value = module.cloudwatch.status_check_alarm_name
+
+}

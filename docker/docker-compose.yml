@@ -1,0 +1,31 @@
+version: "3.9"
+
+services:
+
+  nodeapp:
+
+    container_name: nodeapp
+
+    build:
+      context: ../app
+      dockerfile: ../docker/Dockerfile
+
+    image: project786/nodeapp:latest
+
+    restart: unless-stopped
+
+    ports:
+      - "3000:3000"
+
+    environment:
+      PORT: 3000
+      NODE_ENV: production
+
+    networks:
+      - project786-network
+
+networks:
+
+  project786-network:
+
+    driver: bridge
